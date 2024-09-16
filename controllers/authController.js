@@ -51,7 +51,7 @@ export const login = asyncHandler(async (req, res, next) => {
     { email: user.email, id: user._id },
     process.env.JWT_SECRET,
     {
-      expiresIn: "90d",
+      expiresIn: "900d",
     }
   );
   res
@@ -74,7 +74,7 @@ export const logout = asyncHandler(async (req, res, next) => {
     })
     .json({
       success: true,
-      message: "Loggedout successfully",
+      message: "Logged out successfully",
     });
   next();
 });
