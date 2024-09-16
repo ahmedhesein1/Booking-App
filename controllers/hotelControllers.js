@@ -2,7 +2,6 @@ import asyncHandler from "express-async-handler";
 import AppError from "../utils/appError.js";
 import Hotel from "../models/hotelModel.js";
 import Room from "../models/roomModel.js";
-import { promise } from "bcrypt/promises.js";
 export const getAllHotels = asyncHandler(async (req, res, next) => {
   const { min, max, ...others } = req.query;
   const hotels = await Hotel.find({
@@ -37,9 +36,7 @@ export const getHotel = asyncHandler(async (req, res, next) => {
   }
   res.status(200).json({
     success: true,
-    data: {
-      hotel,
-    },
+    hotel,
   });
   next();
 });
@@ -52,9 +49,7 @@ export const updateHotel = asyncHandler(async (req, res, next) => {
   }
   res.status(201).json({
     success: true,
-    data: {
-      newHotel,
-    },
+    newHotel,
   });
   next();
 });
@@ -65,7 +60,7 @@ export const deleteHotel = asyncHandler(async (req, res, next) => {
   }
   res.status(201).json({
     success: true,
-    data: null,
+    message: "Hotel Deleted successfully ",
   });
   next();
 });
