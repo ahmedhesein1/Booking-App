@@ -20,7 +20,7 @@ router
   );
 router
   .route("availability/id")
-  .patch(authController.protect, roomController.updateRoomAvailability);
+  .patch(authController.protect,authController.restrictTo('admin'), roomController.updateRoomAvailability);
 router
   .route("/:id/:hotelId")
   .delete(
