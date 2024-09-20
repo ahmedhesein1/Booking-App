@@ -26,7 +26,6 @@ export const createRoom = asyncHandler(async (req, res, next) => {
   next();
 });
 export const getRoom = asyncHandler(async (req, res, next) => {
-  // console.log(Hotel.countDocuments());
   const room = await Room.findById(req.params.id);
   if (!room) {
     return next(new AppError("Room Not Found"));
